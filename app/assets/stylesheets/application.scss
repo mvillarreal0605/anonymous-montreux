@@ -32,9 +32,45 @@
 	}
 	p {
 		color: white;
-		// opacity: 0.8;
-		font-size: 25px;
+		font-size: 20px;
 		font-weight: lighter;
 		margin-bottom: 30px;
 	}
 }
+
+.btn-flat {
+	color: white;
+	padding: 8px 24px;
+	border-radius: 4px;
+	background: #3581b8;
+	transition: background 0.3s ease;
+	margin: 0px 4px 0px;
+  }
+  
+  .btn-flat:hover {
+	background: #A1D2CE;
+	color: white;
+  }
+
+  .comment-section {
+	margin-top: 30px;
+	padding: 16px;
+	background-color: rgba(0,0,0,0.6);
+	max-height: 300px;
+	overflow: scroll;
+	p {
+	  font-size: 16px;
+	}
+  }
+
+  .comment-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+  }
+
+  .avatar {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+  }

@@ -1,15 +1,18 @@
 <div class='banner'>
   <h1>Montreux Social</h1>
   <p class='col-6'>Welcome to Montreux Social, just a low budget site to keep up on things around the complex and socialize. There are no user accounts, and the comments are anonymous.. so please keep it neighborly.</p>
+  <%= simple_form_for @comment, wrapper: :inline_form, html: { class: "row row-cols-lg-auto g-3 align-items-center" }, wrapper_mappings: { boolean: :inline_boolean } do |f| %>
+    <div><%= f.input :text, label: false, required: true, placeholder: "Spill the beans..." %></div>
+    <div><%= f.submit "Share", class: "btn btn-flat" %></div>
+  <% end %>
+  <div class='comment-section col-6'>
+    <% @comments.each do |comment| %>
+      <div class='comment-row'>
+        <%= image_tag "#{comment.image}", alt: "wtf 🤬", class: 'avatar' %>
+        <p><%= comment.text %></p>
+        <p class='comment-time'><%= time_ago_in_words(comment.created_at) %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-
-<%= simple_form_for @comment do |f| %>
-  <%= f.input :text, required: true, placeholder: "Spill the beans..." %>  
-  <%= f.submit "Share", class: "btn btn-flat" %>
-<% end %>
-
-<% @comments.each do |comment| %>
-  <%= image_tag "#{comment.image}", alt: "wtf 🤬" %>
-  <p><%= comment.text %></p>
-<% end %>
